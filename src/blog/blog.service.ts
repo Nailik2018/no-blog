@@ -24,10 +24,6 @@ export class BlogService {
     return blogData;
   }
 
-  // async findOne(id: number) {
-  //   return `This action returns a #${id} blog`;
-  // }
-
   async findOne(blogId: string): Promise<IBlog> {
     const existingBlog = await     this.blogModel.findById(blogId).exec();
     if (!existingBlog) {
@@ -35,7 +31,6 @@ export class BlogService {
     }
     return existingBlog;
   }
-
 
   async update(blogId: string, updateBlogDto: UpdateBlogDto): Promise<IBlog> {
     const existingBlog = await this.blogModel.findByIdAndUpdate(blogId, updateBlogDto, { new: true });
