@@ -1,0 +1,23 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Login to GitHub Packages
+      run: echo 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 | docker login docker.pkg.github.com -u Nailik2018 --password-stdin
+
+    - name: Build the Docker image
+      run: docker build -t docker.pkg.github.com/no-blog/mongo:7.0.5 .
+
+    - name: Push the Docker image to GitHub Packages
+      run: docker push docker.pkg.github.com/no-blog/mongo:7.0.5
