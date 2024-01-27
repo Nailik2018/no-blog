@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { BlogSchema } from './blog/blog.schema';
 import { BlogController } from './blog/blog.controller';
@@ -12,6 +11,6 @@ import { BlogService } from './blog/blog.service';
     MongooseModule.forFeature([{ name: 'Blog', schema: BlogSchema }]),
   ],
   controllers: [BlogController],
-  providers: [AppService, BlogService],
+  providers: [BlogService],
 })
 export class AppModule {}
