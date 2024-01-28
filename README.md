@@ -33,6 +33,13 @@ $ npm install
 ## Running the app
 
 ```bash
+# Run App
+$ npm run start:dev
+```
+
+```URL: http://localhost:3000/api```
+
+```bash
 # development
 $ npm run start
 
