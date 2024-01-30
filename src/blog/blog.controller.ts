@@ -32,8 +32,7 @@ export class BlogController {
   }
 
   @Put(':id')
-  async update(@Res() response,@Param('id') blogId: string,
-                      @Body() updateBlogDto: UpdateBlogDto) {
+  async update(@Res() response,@Param('id') blogId: string, @Body() updateBlogDto: UpdateBlogDto) {
     try {
       const existingBlog = await this.blogService.update(blogId, updateBlogDto);
       return response.status(HttpStatus.OK).json({ existingBlog,});

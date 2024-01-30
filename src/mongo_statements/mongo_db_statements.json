@@ -1,0 +1,36 @@
+// Datenbank wählen
+use blogdb
+
+// Collection anzeigen
+show collections
+
+// Einträge anzeigen
+db.blogs.find()
+db.blogs.findOne({_id: ObjectId("65b94c0106e55f507ddb185b")})
+
+// Neuen Blog Eintrag erstellen
+// deprecated
+//db.blogs.insert({
+//  title: "Italien",
+//  description: "Im Land der Pizza und Pasta",
+//  __v: 0
+//})
+db.blogs.insertOne({
+  title: "Italien",
+  description: "Im Land der Pizza und Pasta",
+  __v: 0
+})
+
+// Blog Eintrag Updaten
+db.blogs.updateOne(
+{ _id: ObjectId("65b94c0106e55f507ddb185b") },
+{ $set: { description: "Ein Blick auf die Kultur und Küche Italiens" } }
+)
+
+// Blog Beitrag löschen
+// deprecated
+//db.blogs.remove({ title: "Italien" })
+db.blogs.deleteOne({ _id: ObjectId("65b94c0106e55f507ddb185b") })
+
+
+
